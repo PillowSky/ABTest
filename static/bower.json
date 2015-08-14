@@ -1,0 +1,11 @@
+{
+	"name": "ABTest",
+	"description": "ABTest",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"jquery": "x",
+		"bootstrap": "x",
+		"jquery.cookie": "x"
+	}
+}

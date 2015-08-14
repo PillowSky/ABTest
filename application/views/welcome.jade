@@ -1,0 +1,54 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+		meta(name='description' content='ABTest')
+		meta(name='renderer' content='webkit')
+		meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+		title ABTest
+		link(rel='stylesheet' href='static/bower_components/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet' href='static/css/welcome.css')
+		link(rel='icon' href='static/img/favicon.ico')
+
+	body
+		nav.navbar.navbar-inverse
+			.container
+				.navbar-header
+					a.navbar-brand(href='/') ABTest for Tone-mapping
+				form#delete(action='/' method='post')
+					input(type='hidden' name='ID' value='{ID}')
+					input(type='hidden' name='choice' value='delete')
+					button.close(type='submit') &times;
+
+		.container-fluid
+			.input-group.center-block.text-center
+				label.large 我是设计师
+					input#designer(type="checkbox")
+			br
+			.row
+				{case}
+				.col-xs-6
+					img.thumbnail.case(src='{file}')
+					form(action='/' method='post')
+						input(type='hidden' name='ID' value='{ID}')
+						input(type='hidden' name='choice' value='{type}')
+						button.btn.btn-lg.btn-wide.btn-success.center-block(type='submit') {text}
+				{/case}
+			br
+			.row
+				.col-xs-3
+				.col-xs-6
+					form(action='/' method='post')
+						input(type='hidden' name='ID' value='{ID}')
+						input(type='hidden' name='choice' value='equal')
+						button.btn.btn-lg.btn-wide.btn-warning.center-block(type='submit') 一样好
+				.col-xs-3
+			.row
+				h4.text-center 想看大图请右键新窗口打开哦～
+				h4.text-center {ID}
+
+		script(src='static/bower_components/jquery/dist/jquery.min.js')
+		script(src='static/bower_components/bootstrap/dist/js/bootstrap.min.js')
+		script(src='static/bower_components/jquery.cookie/jquery.cookie.js')
+		script(src='static/js/welcome.js')

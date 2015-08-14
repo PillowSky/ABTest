@@ -1,0 +1,16 @@
+# Files that are automatically generated
+*.html
+*.css
+*.js
+*.map
+
+# Backup files
+*~
+
+# Packages
+bower_components
+node_modules
+
+# data dir
+simple
+fusion
