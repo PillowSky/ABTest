@@ -9,7 +9,7 @@ class Convert extends CI_Controller {
 			while (($filename = $directory->read()) !== FALSE) {
 				$ID = substr($filename, 0, strrpos($filename, '_'));
 				if ($ID) {
-					$this->png2jpg("/var/www/simple/${ID}_simple.png", "/var/www/simple/${ID}_simple.jpg", 100);
+					$this->png2jpg("/var/www/simple/{$ID}_simple.png", "/var/www/simple/{$ID}_simple.jpg", 100);
 					echo($ID . "\n");
 				}
 			}
