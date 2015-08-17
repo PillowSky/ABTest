@@ -35,13 +35,13 @@ class Welcome extends CI_Controller {
 			'case' => array(
 				array(
 					'ID' => $ID,
-					'file' => "{$order[0]}/{$ID}_{$order[0]}.png",
+					'file' => "{$order[0]}/{$ID}_{$order[0]}.jpg",
 					'type' => $order[0],
 					'text' => '左边的好'
 				),
 				array(
 					'ID' => $ID,
-					'file' => "{$order[1]}/{$ID}_{$order[1]}.png",
+					'file' => "{$order[1]}/{$ID}_{$order[1]}.jpg",
 					'type' => $order[1],
 					'text' => '右边的好'
 				)
