@@ -52,7 +52,7 @@ IDSizeListSize = len(IDSizeList)
 for i in range(len(IDSizeList) - 1):
 	thisRow = IDSizeList[i    ]
 	nextRow = IDSizeList[i + 1]
-	if (thisRow[0] * 1.01 > nextRow[0]):
+	if (thisRow[0] * 1.1 > nextRow[0]):
 		thisFile = '/var/www/simple/%s_simple.jpg' % thisRow[1]
 		nextFile = '/var/www/simple/%s_simple.jpg' % nextRow[1]
 		thisImg = cv2.imread(thisFile, 0)
