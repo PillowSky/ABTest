@@ -16,10 +16,6 @@ html
 			.container
 				.navbar-header
 					a.navbar-brand(href='/') ABTest for Tone-mapping
-				form#delete(action='/' method='post')
-					input(type='hidden' name='ID' value='{ID}')
-					input(type='hidden' name='choice' value='delete')
-					button.close(type='submit') &times;
 
 		.container-fluid
 			.input-group.center-block.text-center
@@ -47,6 +43,11 @@ html
 			.row
 				h4.text-center 想看大图请右键新窗口打开哦～
 				h4.text-center {ID}
+				form#delete(action='/' method='post')
+					input(type='hidden' name='ID' value='{ID}')
+					input(type='hidden' name='choice' value='delete')
+					button.btn.btn-lg.btn-wide.btn-danger.center-block(type='submit') 图片有渲染错误，删除
+			br
 
 		script(src='static/bower_components/jquery/dist/jquery.min.js')
 		script(src='static/bower_components/bootstrap/dist/js/bootstrap.min.js')
