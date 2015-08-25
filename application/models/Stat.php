@@ -10,19 +10,21 @@ class Stat extends CI_Model {
 	public function get() {
 		$sql = 'SELECT
 					COUNT(*) AS `TotalCase`,
+					COUNT(CASE WHEN `simple` > `fusion` THEN TRUE ELSE NULL END) AS `UserSimpleCase`,
+					COUNT(CASE WHEN `simple` < `fusion` THEN TRUE ELSE NULL END) AS `UserFusionCase`,
+					COUNT(CASE WHEN `simple` = `fusion` THEN TRUE ELSE NULL END) AS `UserEqualCase`,
+					COUNT(CASE WHEN `simple_d` > `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerSimpleCase`,
+					COUNT(CASE WHEN `simple_d` < `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerFusionCase`,
+					COUNT(CASE WHEN `simple_d` = `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerEqualCase`,
 					(SUM(`simple`) + SUM(`fusion`) + SUM(`equal`) + SUM(`simple_d`) + SUM(`fusion_d`) + SUM(`equal_d`)) AS `TotalTest`,
-					COUNT(CASE WHEN `simple` > `fusion` THEN TRUE ELSE NULL END) AS `UserSimpleCount`,
-					COUNT(CASE WHEN `simple` < `fusion` THEN TRUE ELSE NULL END) AS `UserFusionCount`,
-					COUNT(CASE WHEN `simple` = `fusion` THEN TRUE ELSE NULL END) AS `UserEqualCount`,
-					COUNT(CASE WHEN `simple_d` > `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerSimpleCount`,
-					COUNT(CASE WHEN `simple_d` < `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerFusionCount`,
-					COUNT(CASE WHEN `simple_d` = `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerEqualCount`,
-					SUM(`simple`) AS `UserSimpleSum`,
-					SUM(`fusion`) AS `UserFusionSum`,
-					SUM(`equal`) AS `UserEqualSum`,
-					SUM(`simple_d`) AS `DesignerSimpleSum`,
-					SUM(`fusion_d`) AS `DesignerFusionSum`,
-					SUM(`equal_d`) AS `DesignerEqualSum`
+					(SUM(`simple`) + SUM(`fusion`) + SUM(`equal`)) AS `UserTest`,
+					SUM(`simple`) AS `UserSimpleTest`,
+					SUM(`fusion`) AS `UserFusionTest`,
+					SUM(`equal`) AS `UserEqualTest`,
+					(SUM(`simple_d`) + SUM(`fusion_d`) + SUM(`equal_d`)) AS `DesignerTest`,
+					SUM(`simple_d`) AS `DesignerSimpleTest`,
+					SUM(`fusion_d`) AS `DesignerFusionTest`,
+					SUM(`equal_d`) AS `DesignerEqualTest`
 				FROM `record`';
 
 		return $this->db->query($sql)->row();
