@@ -9,7 +9,7 @@ class Record extends CI_Model {
 
 	public function random() {
 		$sql = 'SELECT * FROM `record` ORDER BY RAND() LIMIT 1';
-		return $this->db->query($sql)->row_array();
+		return $this->db->query($sql)->row();
 	}
 
 	public function vote($ID, $choice, $designer = FALSE) {

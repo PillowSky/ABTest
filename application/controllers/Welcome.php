@@ -23,8 +23,7 @@ class Welcome extends CI_Controller {
 
 		$ID = $this->input->get('ID');
 		if (!$ID) {
-			$row = $this->record->random();
-			$ID = $row['ID'];
+			$ID = $this->record->random()->ID;
 		}
 
 		$order = array('simple', 'fusion');
