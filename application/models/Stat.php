@@ -10,12 +10,12 @@ class Stat extends CI_Model {
 	public function get() {
 		$sql = 'SELECT
 					COUNT(*) AS `TotalCase`,
-					COUNT(CASE WHEN `simple` > `fusion` THEN TRUE ELSE NULL END) AS `UserSimpleCase`,
-					COUNT(CASE WHEN `simple` < `fusion` THEN TRUE ELSE NULL END) AS `UserFusionCase`,
-					COUNT(CASE WHEN `simple` = `fusion` THEN TRUE ELSE NULL END) AS `UserEqualCase`,
-					COUNT(CASE WHEN `simple_d` > `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerSimpleCase`,
-					COUNT(CASE WHEN `simple_d` < `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerFusionCase`,
-					COUNT(CASE WHEN `simple_d` = `fusion_d` THEN TRUE ELSE NULL END) AS `DesignerEqualCase`,
+					COUNT(CASE WHEN `simple` > `fusion` THEN TRUE END) AS `UserSimpleCase`,
+					COUNT(CASE WHEN `simple` < `fusion` THEN TRUE END) AS `UserFusionCase`,
+					COUNT(CASE WHEN `simple` = `fusion` THEN TRUE END) AS `UserEqualCase`,
+					COUNT(CASE WHEN `simple_d` > `fusion_d` THEN TRUE END) AS `DesignerSimpleCase`,
+					COUNT(CASE WHEN `simple_d` < `fusion_d` THEN TRUE END) AS `DesignerFusionCase`,
+					COUNT(CASE WHEN `simple_d` = `fusion_d` THEN TRUE END) AS `DesignerEqualCase`,
 					(SUM(`simple`) + SUM(`fusion`) + SUM(`equal`) + SUM(`simple_d`) + SUM(`fusion_d`) + SUM(`equal_d`)) AS `TotalTest`,
 					(SUM(`simple`) + SUM(`fusion`) + SUM(`equal`)) AS `UserTest`,
 					SUM(`simple`) AS `UserSimpleTest`,
